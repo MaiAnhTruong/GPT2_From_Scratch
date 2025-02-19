@@ -1,0 +1,48 @@
+Tokenizers:
+
+3 loại:
+    Dựa trên từ, dựa trên tiểu từ, dựa trên ký tự
+
+Dựa trên từ - Tokenizer được triển khai trong tokenizer.py là tokenizer dựa trên từ. Tức là mỗi từ được chuyển thành một token.
+             Vấn đề: Điều gì xảy ra khi có từ ngoài từ điển (OOV) xuất hiện trong câu.
+                    Ý nghĩa khác nhau của những từ giống nhau [boys, boy] --> chúng có thể có các vector embeddings rất xa nhau mặc dù có ý nghĩa tương tự.
+
+Dựa trên ký tự - Các ký tự riêng lẻ được phân tách thành các token.
+                  Giải quyết vấn đề OOV.
+                  Vấn đề: Từ vựng rất nhỏ. Mỗi ngôn ngữ có một số lượng ký tự cố định (tiếng Anh ~256)
+                         Ý nghĩa liên kết với từ hoàn toàn bị mất.
+                         Chuỗi tokenized dài hơn văn bản gốc.
+
+Dựa trên tiểu từ - Byte Pair Encoding (BPE) là một ví dụ của tokenizer dựa trên tiểu từ.
+                 Quy tắc:
+                        1. Không phân tách những từ thường xuyên sử dụng thành các tiểu từ nhỏ hơn.
+                        2. Phân tách những từ hiếm gặp thành các tiểu từ nhỏ hơn và có nghĩa.
+
+                 Ví dụ: "boy" không nên được phân tách.
+                     "boys" nên được phân tách thành "boy" & "s".
+
+                 Phương pháp này giúp mô hình hiểu các từ có cùng gốc từ.
+                    Ví dụ: Tokenizer, Tokens, v.v.
+                
+                Nó cũng giúp mô hình học được rằng "tokenization" và "modernization" đều được tạo thành từ các gốc từ khác nhau nhưng có
+                hậu tố giống nhau "ization" và được sử dụng trong các tình huống cú pháp tương tự.
+
+
+
+Byte Pair Encoding (BPE):
+
+            Cặp byte liên tiếp phổ biến nhất được thay thế bằng một byte không xuất hiện trong dữ liệu.
+
+            Ví dụ. Dữ liệu gốc: aaabdaaabac
+
+                1. Cặp byte "aa" xuất hiện nhiều nhất. Chúng ta sẽ thay thế nó bằng Z vì Z không xuất hiện trong dữ liệu.
+
+                Dữ liệu nén - ZabdZabac
+
+                2. Cặp byte phổ biến tiếp theo là "ab". Chúng ta sẽ thay thế nó bằng Y
+
+                Dữ liệu nén - ZYdZYac
+
+                3. Cặp byte phổ biến tiếp theo là "ZY", chúng ta sẽ thay thế nó bằng W
+
+                Dữ liệu nén - WdWac

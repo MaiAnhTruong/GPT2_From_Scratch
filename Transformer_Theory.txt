@@ -1,0 +1,60 @@
+Giới thiệu về Transformers:
+
+Bài báo: Attention Is All You Need
+
+Bài báo này đã giới thiệu kiến trúc transformer. Nó được sử dụng lần đầu tiên cho nhiệm vụ dịch máy.
+
+Bước 1: Văn bản tiếng Anh "Hello, my name is Ganesh"
+
+Bước 2: Tokenization - chuyển đổi các từ thành tập hợp các số/ID duy nhất
+
+Bước 3: Encoder - các token được chuyển thành vector embedding. Trong bước này, ý nghĩa ngữ nghĩa của những từ tương tự được xem xét. Khi token hóa, các từ tương tự như dog và puppy sẽ có các ID ngẫu nhiên. Các từ được chuyển thành các biểu diễn vector (vector embedding). Tức là tất cả những từ có ý nghĩa tương tự sẽ gần nhau trong bản đồ vector. Các vector embedding của apple, banana, orange sẽ gần nhau. Các vector embedding của football, golf, tennis cũng sẽ gần nhau. Ý nghĩa ngữ nghĩa của các từ được nắm bắt.
+
+Bước 4: Output của embedding được đưa vào decoder.
+
+Bước 5: Văn bản đầu ra một phần, tức là văn bản sẽ được đưa vào decoder. Mô hình hoàn thành một từ một lần. Ví dụ: "What are you"
+
+Bước 6: Văn bản được tiền xử lý cho decoder.
+
+Bước 7: Decoder - Nhận 2 đầu vào: vector embedding từ encoder và văn bản đầu ra một phần cần hoàn thành.
+
+Bước 8: Mô hình transformer được huấn luyện để dự đoán từ tiếp theo.
+
+Bước 9: "What are you doing?" - văn bản được dự đoán từ mô hình.
+
+Attention:
+
+Self Attention:
+
+Cho phép mô hình cân nhắc mức độ quan trọng của các từ/token khác nhau liên quan đến nhau.
+Giúp mô hình nắm bắt các phụ thuộc dài hạn.
+Các biến thể khác nhau của mô hình Transformer: BERT và GPT:
+
+BERT: Bidirectional Encoder Representations from Transformers
+
+Dự đoán các từ ẩn trong câu cho trước (lấp đầy các từ thiếu)
+
+Quy trình làm việc:
+
+Bước 1: Câu ví dụ đầu vào - "This is _ beautiful flower"
+
+Bước 2: Các bước tiền xử lý
+
+Bước 3: Encoder
+
+Bước 4: Đầu ra - "This is a beautiful flower"
+
+GPT: Generative Pretrained Transformers
+
+Dự đoán từ tiếp theo trong câu. Dự đoán từng từ một.
+
+Quy trình làm việc:
+
+Bước 1: Câu ví dụ đầu vào - "This is a beautiful _"
+
+Bước 2: Các bước tiền xử lý
+
+Bước 3: Decoder
+
+Bước 4: Đầu ra - "This is a beautiful flower"
+

@@ -1,0 +1,14 @@
+Tiền xử lý dữ liệu LLM
+
+4 bước:
+
+1. Tokenization: 
+   - Dựa trên từ
+   - Dựa trên ký tự
+   - Dựa trên tiểu từ -- Byte-Pair Tokenizer
+
+2. Token Embeddings: Chuyển đổi Token ID thành Vector
+
+3. Positional Embeddings: Mã hóa thông tin về Vị trí
+
+4. Input Embeddings: Token Embeddings + Positional Embeddings

@@ -1,0 +1,8 @@
+Bước cuối cùng trước khi tạo vector embeddings là tạo cặp đầu vào và đầu ra.
+
+Với một mẫu văn bản, trích xuất các khối đầu vào dưới dạng các mẫu con (subsamples) phục vụ như đầu vào cho LLM.
+Nhiệm vụ dự đoán của LLM trong quá trình huấn luyện là dự đoán từ tiếp theo sau khối đầu vào.
+
+Trong quá trình huấn luyện, chúng ta sẽ che tất cả các từ vượt quá/tương lai so với từ mục tiêu.
+
+Kích thước ngữ cảnh - chiều dài của đầu vào. Tức là kích thước ngữ cảnh 4 có nghĩa là mô hình được huấn luyện để xem xét một chuỗi gồm 4 từ để dự đoán từ tiếp theo.

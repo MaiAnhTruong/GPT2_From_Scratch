@@ -1,0 +1,49 @@
+# Save the translated content into a text file
+
+llm_content = """
+LLM - Mạng nơ-ron được thiết kế để hiểu, tạo ra và phản hồi văn bản giống như con người
+
+NN - Mạng nơ-ron (Neural Network) --> Được huấn luyện trên một lượng dữ liệu văn bản khổng lồ
+
+Large - Các mô hình có hàng tỷ tham số
+Language models - Các mô hình này thực hiện nhiều nhiệm vụ NLP (xử lý ngôn ngữ tự nhiên): trả lời câu hỏi, dịch thuật, phân tích cảm xúc, v.v.
+                  Các mô hình này cũng là mô hình đơn thể, tức là đầu vào và đầu ra chỉ là dữ liệu văn bản
+
+LLM vs Các mô hình NLP trước đây:
+
+LLM có thể thực hiện nhiều nhiệm vụ NLP như đã đề cập ở trên.
+Các mô hình NLP - được thiết kế cho các nhiệm vụ cụ thể như dịch ngôn ngữ, v.v.
+
+Ví dụ: Soạn thảo email tùy chỉnh với ít văn bản trước (prompts).
+
+Các khối xây dựng chính của LLM:
+
+    Transformers - Attention is all you Need
+
+AI --> ML --> DL --> Gen AI --> LLM
+
+Ứng dụng của LLM (Các nhóm chính):
+
+1. Chatbots / trợ lý ảo
+2. Dịch máy - dịch ngôn ngữ sang ngôn ngữ
+3. Tạo văn bản mới - email, v.v.
+4. Phân tích cảm xúc - tích cực/tiêu cực
+5. Sáng tạo nội dung - kể chuyện dựa trên prompts, tạo mã lập trình
+
+Các giai đoạn xây dựng LLM: Pretraining + Finetuning
+
+Pretraining - Huấn luyện mô hình trên một bộ dữ liệu lớn (thường là hàng triệu từ)
+
+              Mô hình LLM cơ bản có thể thực hiện các nhiệm vụ mà không cần huấn luyện trên chúng. Ví dụ, hiệu suất trong các nhiệm vụ như chọn câu trả lời đúng cho một câu hỏi trắc nghiệm sẽ tăng dần khi LLM cơ bản cải thiện nhiệm vụ mà nó được huấn luyện ban đầu, tức là hoàn thành câu.
+
+Finetuning - Làm tinh chỉnh mô hình bằng cách huấn luyện trên một bộ dữ liệu nhỏ hơn, tập trung. Nó thực hiện tốt hơn nhiều trong lĩnh vực/dữ liệu đó.
+
+Dữ liệu (Văn bản internet, sách, tài liệu nghiên cứu, v.v.) --> Huấn luyện --> LLM đã được huấn luyện (Mô hình nền tảng) --> Finetuning --> LLM đã được tinh chỉnh (huấn luyện cụ thể trên bộ dữ liệu có nhãn tập trung)
+Pretraining được thực hiện trên dữ liệu không có nhãn (học không giám sát) - còn được gọi là học tự hồi quy. Tức là nó sử dụng từ tiếp theo làm nhãn cho việc huấn luyện.
+
+Các bước để xây dựng một LLM:
+
+1. Huấn luyện trên một tập dữ liệu văn bản lớn (văn bản thô). Văn bản thô = không có nhãn
+    Giai đoạn huấn luyện đầu tiên của LLM cũng được gọi là Pretraining. Tạo ra một LLM ban đầu (mô hình cơ sở/nền tảng).
+
+2. Tinh chỉnh mô hình LLM trên dữ liệu có nhãn. Có 2 loại tinh chỉnh: Tinh chỉnh theo chỉ dẫn, tinh chỉnh cho phân loại.

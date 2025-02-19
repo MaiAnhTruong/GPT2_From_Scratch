@@ -1,0 +1,64 @@
+Chuỗi các bài báo GPT được OpenAI công bố:
+
+Attention Is All You Need - 2017
+
+1. Cải thiện khả năng hiểu ngôn ngữ với học không giám sát - 2018 (GPT 1)
+2. Các mô hình ngôn ngữ là người học đa nhiệm không giám sát - 2019 (GPT 2)
+3. Các mô hình ngôn ngữ là người học ít ví dụ - 2020 (GPT 3)
+
+Zero shot vs One shot vs Few shot Learning:
+
+Zero shot:
+    Mô hình dự đoán câu trả lời chỉ dựa trên mô tả ngôn ngữ tự nhiên của nhiệm vụ. Không có cập nhật gradient nào được thực hiện.
+
+    Mô tả Nhiệm vụ --> Dịch tiếng Anh sang tiếng Pháp
+    cheese => ?
+
+One Shot:
+    Bên cạnh mô tả nhiệm vụ, mô hình sẽ thấy một ví dụ duy nhất của nhiệm vụ đó. Không có cập nhật gradient nào được thực hiện.
+
+    Mô tả Nhiệm vụ --> Dịch tiếng Anh sang tiếng Pháp
+    Ví dụ --> sea otter => loutre de mer
+    cheese => ?
+
+Few Shot:
+    Bên cạnh mô tả nhiệm vụ, mô hình sẽ thấy một vài ví dụ của nhiệm vụ đó. Không có cập nhật gradient nào được thực hiện.
+
+    Mô tả Nhiệm vụ --> Dịch tiếng Anh sang tiếng Pháp
+    Ví dụ --> sea otter => loutre de mer
+                pepperming => menthe poivree
+                plush girafe => girafe peluche
+
+    cheese => ?
+
+Datasets:
+
+- Common Crawl - ~250 tỷ trang web trong 17 năm (miễn phí và mã nguồn mở)
+- webtext2 - Các bài đăng trên Reddit từ 2005 đến 2020
+- wikipedia
+
+Token: Là một đơn vị văn bản mà mô hình đọc. 1 token = một từ
+
+Mô hình đã được huấn luyện trước = Mô hình nền tảng, có thể được tinh chỉnh cho các nhiệm vụ sử dụng cụ thể để cải thiện độ chính xác.
+
+Kiến trúc GPT:
+
+Các mô hình GPT được huấn luyện đơn giản với nhiệm vụ "dự đoán từ tiếp theo".
+    Tức là: The lion roams in the __
+                               Jungle
+                              (từ tiếp theo)
+
+Dự đoán từ tiếp theo: học tự giám sát
+                        tự gán nhãn.
+                     Tức là câu được chia thành hai phần:
+                        1. Phần đầu tiên làm đầu vào
+                        2. Mỗi từ của phần thứ hai theo thứ tự là đầu ra để dự đoán, dựa trên từ đầu tiên.
+
+Dữ liệu không được gán nhãn cho việc huấn luyện, thay vào đó từ tiếp theo trong câu được sử dụng làm nhãn. ---> Auto Regressive -- sử dụng các đầu ra trước làm đầu vào cho dự đoán sau.
+
+Không có encoders. Chỉ có Decoders.
+        [Bài báo Transformer gốc: 6 khối encoder-decoder]
+    GPT 3 có 96 lớp transformer - 175 tỷ tham số
+
+Emergent behaviour:
+    Mặc dù ban đầu được huấn luyện để dự đoán từ tiếp theo, nhưng mô hình có thể thực hiện các nhiệm vụ khác như dịch ngôn ngữ, tóm tắt, v.v. mà không cần tinh chỉnh cho các nhiệm vụ này.
